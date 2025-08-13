@@ -2,7 +2,7 @@
 FROM mritd/shadowsocks
 
 # 将本地配置文件复制到容器中
-COPY config.json /etc/shadowsocks-libev/config.json
+COPY shadowsocks-deploy/config.json /etc/shadowsocks-libev/config.json
 
 # 启动 Shadowsocks 服务
 CMD ["ss-server", "-c", "/etc/shadowsocks-libev/config.json"]
