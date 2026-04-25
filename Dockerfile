@@ -1,8 +1,11 @@
-# 使用官方的 Shadowsocks 镜像
-FROM mritd/shadowsocks
+FROM alpine:latest
 
-# 将本地配置文件复制到容器中
-COPY shadowsocks-deploy/config.json /etc/shadowsocks-libev/config.json
+RUN apk add --no-cache python3 py3-pip
 
-# 启动 Shadowsocks 服务
-CMD ["ss-server", "-c", "/etc/shadowsocks-libev/config.json"]
+WORKDIR /app
+
+COPY . .
+
+RUN pip install --no-cache-dir shadowsocks
+
+CMD ss-server -s 0.0.0.0 -p $PORT -k $PASSWORD -m $METHOD
