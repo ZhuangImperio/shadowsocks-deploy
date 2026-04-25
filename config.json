@@ -1,8 +1,0 @@
-{
-    "server": "0.0.0.0",
-    "server_port": 8388,
-    "password": "Zzc@2008",
-    "timeout": 300,
-    "method": "aes-256-gcm"
-  }
-  
